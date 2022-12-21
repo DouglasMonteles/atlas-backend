@@ -75,6 +75,9 @@ class Dictionary(models.Model):
         choices=UnitOptions.choices,
         default=UnitOptions.NUMBER,
     )
+
+    sub_dictionary = models.ForeignKey('self', null=True, on_delete=models.CASCADE,
+        related_name="subDictionary")
     
     def __str__(self):
         return self.name
